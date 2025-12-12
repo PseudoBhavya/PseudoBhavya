@@ -1,0 +1,20 @@
+name: Generate Snake Animation
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate snake.svg
+        uses: Platane/snk@master
+        with:
+          github_user_name: PseudoBhavya
+          outputs: |
+            dist/github-snake-dark.svg?color_snake=FF6B6B&color_dots=FF6B6B
